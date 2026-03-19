@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Listas de Telefonos</h1>  
+<a href='telefono/create'>Crear Telefono</a>
+<table>
+<thead>
+    <tr>s
+        <td>Id</td>
+        <td>Codigo Cliente</td>
+        <td>Numero Telefono</td>
+        <td>Editar</td>
+        <td>Eliminar</td>
+        <td>Agregar Telefono</td>
+    </tr>
+</thead>
+<tbody>
+    
+@foreach ($telefono as $telefono)
+
+@if($telefono->codigocliente == $infocliente->id)
+
+
+    <tr>
+        <td>{{ $telefono->id }}</td>
+        <td>{{ $telefono->codigocliente }}</td> <td>{{ $telefono->numero }}</td>        <td>
+            <a href="/telefono/{{$telefono->id}}/edit">Editar</a>
+            <a href="/telefono/{{$telefono->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Eliminar</button>
+            </a>
+        </td>
+<tr>
+@endif
+
+    </tr>
+@endforeach
+</tbody>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Listas de Telefonos de {{$infoCliente->id}} {{$infoCliente->nombreCliente}} {{$infoCliente->ApellidoCliente}}</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
